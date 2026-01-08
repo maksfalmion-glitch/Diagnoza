@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookies – SpecTest-Cars</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#111;color:#fff;line-height:1.6}
+
+/* HEADER */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:25px 40px;
+  background:#111;
+  color:#fff;
+  flex-wrap:wrap;
+}
+header .logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:28px;
+  font-weight:bold;
+}
+header .logo-text{
+  background: linear-gradient(90deg,#4da6ff,#00e676);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight:700;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  margin-left:20px;
+}
+nav a:hover{text-decoration:underline}
+
+/* CONTAINER */
+.container{
+  max-width:900px;
+  margin:40px auto;
+  padding:40px;
+  background:#1c1c1c;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+h1,h2{color:#fff;margin-bottom:20px;}
+p{margin-bottom:15px;}
+a.back-link{
+  display:inline-block;
+  margin-top:20px;
+  text-decoration:underline;
+  color:#4da6ff;
+  font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-text">SpecTest-Cars</span>
+  </div>
+  <nav>
+    <a href="index.html">Strona główna</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h1>Informacje o cookies – SpecTest-Cars</h1>
+
+  <h2>Co to są cookies?</h2>
+  <p>Cookies to małe pliki przechowywane na Twoim urządzeniu w celu poprawy działania strony, zapamiętywania ustawień i analizowania statystyk.</p>
+
+  <h2>Jak używamy cookies?</h2>
+  <p>Na naszej stronie stosujemy cookies, aby zapewnić prawidłowe działanie formularza kontaktowego, analizować ruch na stronie oraz poprawić komfort korzystania z serwisu.</p>
+
+  <h2>Zarządzanie cookies</h2>
+  <p>Możesz w każdej chwili usunąć lub zablokować cookies w ustawieniach swojej przeglądarki. Pamiętaj jednak, że może to wpłynąć na działanie strony.</p>
+
+  <h2>Kontakt</h2>
+  <p>W razie pytań dotyczących cookies możesz się z nami kontaktować pod numerem 511 022 640 lub adresem email.</p>
+
+  <a class="back-link" href="index.html">← Powrót do strony głównej</a>
+</div>
+
+<!-- BANER COOKIES (na każdej stronie, tuż przed </body>) -->
+<div id="cookies-banner" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:500px;
+  background:#1c1c1c;
+  color:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  text-align:center;
+  z-index:1000;
+  flex-direction:column;
+  gap:15px;
+  font-family:Arial,sans-serif;
+  font-size:16px;
+  opacity:0.95;
+">
+  <span>Ta strona używa cookies, aby poprawić działanie serwisu i analizować statystyki.</span>
+  <button id="accept-cookies" style="
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background: linear-gradient(90deg,#4da6ff,#00e676);
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+  ">Akceptuję</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const banner = document.getElementById('cookies-banner');
+  if(!localStorage.getItem('cookiesAccepted')){
+    banner.style.display = 'flex';
+  }
+
+  const btn = document.getElementById('accept-cookies');
+  btn.addEventListener('click', function(){
+    localStorage.setItem('cookiesAccepted','true');
+    banner.style.display = 'none';
+  });
+});
+</script>
+
+
+</body>
+</html>
