@@ -212,7 +212,9 @@ footer{
 </section>
 
 <footer data-anim="fly-left">
-  © 2026 SpecTest-Cars
+  © 2026 SpecTest-Cars | 
+  <a href="privacy.html" style="color:#fff; text-decoration:underline;">Polityka prywatności</a> | 
+  <a href="cookies.html" style="color:#fff; text-decoration:underline;">Cookies</a>
 </footer>
 
 <script>
@@ -232,5 +234,74 @@ document.addEventListener("DOMContentLoaded", ()=>{
 });
 </script>
 
+<!-- POWIADOMIENIE COOKIES -->
+<div id="cookies-banner" style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:15px;text-align:center;z-index:1000;display:flex;justify-content:center;align-items:center;gap:10px;">
+  Ta strona używa cookies, aby poprawić działanie serwisu.
+  <button id="accept-cookies" style="padding:8px 15px;background:#007acc;border:none;color:#fff;border-radius:5px;cursor:pointer;">Akceptuję</button>
+</div>
+
+<script>
+if(!localStorage.getItem('cookiesAccepted')){
+  document.getElementById('cookies-banner').style.display='flex';
+}
+
+document.getElementById('accept-cookies').addEventListener('click',()=>{
+  localStorage.setItem('cookiesAccepted','true');
+  document.getElementById('cookies-banner').style.display='none';
+});
+</script>
+
+<!-- BANER COOKIES (na każdej stronie, tuż przed </body>) -->
+<div id="cookies-banner" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:500px;
+  background:#1c1c1c;
+  color:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  text-align:center;
+  z-index:1000;
+  flex-direction:column;
+  gap:15px;
+  font-family:Arial,sans-serif;
+  font-size:16px;
+  opacity:0.95;
+">
+  <span>Ta strona używa cookies, aby poprawić działanie serwisu i analizować statystyki.</span>
+  <button id="accept-cookies" style="
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background: linear-gradient(90deg,#4da6ff,#00e676);
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+  ">Akceptuję</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const banner = document.getElementById('cookies-banner');
+  if(!localStorage.getItem('cookiesAccepted')){
+    banner.style.display = 'flex';
+  }
+
+  const btn = document.getElementById('accept-cookies');
+  btn.addEventListener('click', function(){
+    localStorage.setItem('cookiesAccepted','true');
+    banner.style.display = 'none';
+  });
+});
+</script>
+
+
 </body>
 </html>
+
+
