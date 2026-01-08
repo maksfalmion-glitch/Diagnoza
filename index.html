@@ -3,109 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoDiag – Diagnostyka Samochodowa</title>
+<title>SpecTest-Cars – Sprawdzenie auta przed zakupem</title>
+
 <style>
-  * { box-sizing: border-box; margin:0; padding:0; font-family: Arial,sans-serif; }
-  body { line-height:1.6; overflow-x:hidden; }
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{line-height:1.6;overflow-x:hidden;background:#fff}
 
-  /* HEADER */
-  header { display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#1f1f1f; color:#fff; flex-wrap:wrap; }
-  .logo { font-size:22px; font-weight:bold; margin-bottom:5px; }
-  nav { display:flex; flex-wrap:wrap; gap:15px; }
-  nav a { color:#fff; text-decoration:none; }
-  nav a:hover { text-decoration:underline; }
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 40px;
+  background:#111;
+  color:#fff;
+  flex-wrap:wrap;
+}
 
-  /* HERO */
-  .hero { height:80vh; background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("https://images.unsplash.com/photo-1616628183606-7f6110e5a3b6?auto=format&fit=crop&w=1470&q=80") center/cover; color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; }
-  .hero h1, .hero p { opacity:0; }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:28px;
+  font-weight:bold;
+  color:#007acc;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
 
-  /* SEKCJE */
-  .section { padding:60px 40px; text-align:center; }
-  .gray { background:#f2f2f2; }
-  .section h2, .section p { opacity:0; }
+.logo-text{
+  background: linear-gradient(90deg,#4da6ff,#00e676);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight:700;
+}
 
-  .cards { display:flex; gap:20px; justify-content:center; margin-top:30px; flex-wrap:wrap; }
-  .card { background:white; padding:30px; width:200px; box-shadow:0 5px 15px rgba(0,0,0,0.1); opacity:0; transform: translateY(50px); }
+/* HERO */
+.hero{
+  height:80vh;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("images/tlo.webp") center/cover no-repeat;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 20px;
+}
 
-  footer { background:#1f1f1f; color:white; text-align:center; padding:20px; opacity:0; transform: translateY(50px); }
+/* SEKCJE */
+.section{
+  padding:60px 40px;
+  text-align:center;
+}
+.gray{background:#f2f2f2}
 
-  /* Animacje */
-  @keyframes flyFromLeft { 0% { transform: translateX(-100vw); opacity:0; } 100% { transform: translateX(0); opacity:1; } }
-  @keyframes flyFromRight { 0% { transform: translateX(100vw); opacity:0; } 100% { transform: translateX(0); opacity:1; } }
+/* USŁUGI */
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+.card{
+  background:#fff;
+  padding:30px;
+  width:220px;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+  opacity:0;
+}
 
-  .fly-left { animation: flyFromLeft 1s forwards; }
-  .fly-right { animation: flyFromRight 1s forwards; }
+/* FOOTER */
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+  opacity:0;
+}
 
-  /* RESPONSYWNE */
-  @media (max-width: 768px) {
-    header { flex-direction: column; align-items: flex-start; }
-    nav { flex-direction: column; gap:10px; }
-    .hero { height:60vh; padding:0 15px; }
-    .cards { flex-direction: column; align-items: center; }
-    .card { width:90%; max-width:300px; }
-  }
+/* FORMULARZ */
+.contact-form{
+  margin-top:30px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  max-width:500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.contact-form input,
+.contact-form textarea{
+  padding:12px 15px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font-size:16px;
+  outline:none;
+  transition:0.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#007acc;
+  box-shadow:0 0 5px rgba(0,122,204,0.5);
+}
+.contact-form button{
+  padding:12px 20px;
+  border:none;
+  background:#007acc;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.contact-form button:hover{
+  background:#005f99;
+}
 
-  @media (max-width: 480px) {
-    .hero h1 { font-size:28px; }
-    .hero p { font-size:16px; }
-    .section { padding:40px 20px; }
-    .card { padding:20px; font-size:14px; }
-  }
+/* ANIMACJE */
+@keyframes flyLeft{
+  0%{transform:translateX(-100vw);opacity:0}
+  100%{transform:translateX(0);opacity:1}
+}
+@keyframes flyRight{
+  0%{transform:translateX(100vw);opacity:0}
+  100%{transform:translateX(0);opacity:1}
+}
+.fly-left{animation:flyLeft 1s forwards}
+.fly-right{animation:flyRight 1s forwards}
+
+/* RESPONSYWNE */
+@media(max-width:768px){
+  header{flex-direction:column;align-items:flex-start}
+  nav{flex-direction:column;gap:10px}
+  .hero{height:65vh}
+  .cards{flex-direction:column;align-items:center}
+  .card{width:90%;max-width:300px}
+  .logo{font-size:22px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:28px}
+  .hero p{font-size:16px}
+  .section{padding:40px 20px}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="logo fly-left">AutoDiag</div>
+  <div class="logo" data-anim="fly-left">
+    <!-- SVG logo -->
+    <svg width="60" height="60" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 40 L8 28 H56 L60 40 Z" stroke="#007acc" stroke-width="2" fill="none"/>
+      <circle cx="16" cy="44" r="4" fill="#007acc"/>
+      <circle cx="48" cy="44" r="4" fill="#007acc"/>
+    </svg>
+    <span class="logo-text">SpecTest-Cars</span>
+  </div>
+
   <nav>
-    <a href="#home" class="fly-right">Home</a>
-    <a href="#about" class="fly-right">O nas</a>
-    <a href="#services" class="fly-right">Usługi</a>
-    <a href="#contact" class="fly-right">Kontakt</a>
+    <a href="#home" data-anim="fly-right">Start</a>
+    <a href="#about" data-anim="fly-right">O usłudze</a>
+    <a href="#services" data-anim="fly-right">Zakres</a>
+    <a href="#contact" data-anim="fly-right">Kontakt</a>
   </nav>
 </header>
 
 <section id="home" class="hero">
-  <h1 class="fly-left">Diagnostyka Samochodowa</h1>
-  <p class="fly-right">Szybko, dokładnie i profesjonalnie – sprawdzimy Twój samochód od A do Z.</p>
+  <h1 data-anim="fly-left">Sprawdzenie auta przed zakupem</h1>
+  <p data-anim="fly-right">
+    Fachowa pomoc przy zakupie samochodu – bez ryzyka i bez ściemy
+  </p>
 </section>
 
 <section id="about" class="section">
-  <h2 class="fly-left">O nas</h2>
-  <p class="fly-right">
-    AutoDiag to warsztat specjalizujący się w diagnostyce samochodowej.
-    Nasz zespół wykorzystuje najnowsze technologie, aby dokładnie zidentyfikować usterki i problemy techniczne Twojego auta.
+  <h2 data-anim="fly-left">SpecTest-Cars</h2>
+  <p data-anim="fly-right">
+    Profesjonalne sprawdzenie samochodu przed zakupem: mechanika, blacharka i realna ocena stanu auta.
   </p>
 </section>
 
 <section id="services" class="section gray">
-  <h2 class="fly-left">Nasze usługi</h2>
+  <h2 data-anim="fly-left">Zakres sprawdzenia</h2>
   <div class="cards">
-    <div class="card fly-left">Diagnostyka komputerowa</div>
-    <div class="card fly-right">Kontrola silnika i układu napędowego</div>
-    <div class="card fly-left">Sprawdzanie elektroniki samochodu</div>
+    <div class="card" data-anim="fly-left">Diagnostyka mechaniczna</div>
+    <div class="card" data-anim="fly-right">Kontrola blacharska i lakieru</div>
+    <div class="card" data-anim="fly-left">Ocena ogólna pojazdu</div>
   </div>
 </section>
 
 <section id="contact" class="section">
-  <h2 class="fly-left">Kontakt</h2>
-  <p class="fly-right">📞 +48 539 215 904</p>
-  <p class="fly-left">✉️ biuro@autodiag.pl</p>
-  <p class="fly-right">📍 Poznań, ul. Mechaników 12</p>
+  <h2 data-anim="fly-left">Kontakt</h2>
+  <p data-anim="fly-right"><strong>Numer: 511 022 640</strong></p>
+  <p data-anim="fly-left"><strong>Adres: Szczecin, woj. Zachodniopomorskie</strong></p>
+  <p data-anim="fly-right"><strong>Czas: Zawsze otwarte</strong></p>
+
+  <!-- FORMULARZ -->
+  <form class="contact-form" data-anim="fly-left" action="#" method="post">
+    <input type="text" name="name" placeholder="Imię i nazwisko" required>
+    <input type="email" name="email" placeholder="Twój email" required>
+    <textarea name="message" rows="5" placeholder="Twoja wiadomość" required></textarea>
+    <button type="submit">Wyślij wiadomość</button>
+  </form>
 </section>
 
-<footer class="fly-left">
-  © 2026 AutoDiag – Diagnostyka Samochodowa
+<footer data-anim="fly-left">
+  © 2026 SpecTest-Cars
 </footer>
 
 <script>
-  // Animacje z opóźnieniem
-  window.addEventListener('load', () => {
-    const flyLeft = document.querySelectorAll('.fly-left');
-    const flyRight = document.querySelectorAll('.fly-right');
-    flyLeft.forEach((el,i)=> el.style.animationDelay = (i*0.2)+'s');
-    flyRight.forEach((el,i)=> el.style.animationDelay = (i*0.2)+'s');
+document.addEventListener("DOMContentLoaded", ()=>{
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add(entry.target.dataset.anim);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll("[data-anim]").forEach(el=>{
+    observer.observe(el);
   });
+});
 </script>
 
 </body>
