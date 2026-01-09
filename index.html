@@ -321,9 +321,34 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 </script>
 
+  <!-- CALL TO ACTION -->
+<a href="tel:511022640" id="cta-button" style="
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background: linear-gradient(90deg,#4da6ff,#00e676);
+  color:#fff;
+  font-weight:bold;
+  padding:15px 25px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  text-decoration:none;
+  z-index:1001;
+  transition:0.3s;
+  font-family:Arial,sans-serif;
+">
+  Zadzwoń teraz
+</a>
+
+<script>
+const cta = document.getElementById('cta-button');
+cta.addEventListener('mouseover', ()=> cta.style.transform = 'scale(1.05)');
+cta.addEventListener('mouseout', ()=> cta.style.transform = 'scale(1)');
+</script>
 
 </body>
 </html>
+
 
 
 
